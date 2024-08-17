@@ -24,11 +24,12 @@ jobs:
         path: public/
         
   test:
-    runs-on: ubuntu-latest    
+       
     strategy:
       matrix:
         node-version: [18.x, 20.x]
-        os: [ubuntu-latest, windows-2016]    
+        os: [ubuntu-latest, windows-2016]  
+    runs-on: ${{ matrix.os }}    
     steps:
     - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
